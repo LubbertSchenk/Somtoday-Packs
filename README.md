@@ -1,3 +1,6 @@
+# HTML FILE
+There is an HTML version of this README, this can be found at [LubbertSchenk.nl](https://lubbertschenk.nl/Github/Somtoday/README.html)
+
 # Somtoday Packs
 Version: 1.0
 
@@ -7,9 +10,11 @@ Chrome Extension (Manifest V3) that opens grades like they are EA FC Packs.
 All BETA versions can be found at our [Github page](https://github.com/LubbertSchenk/Somtoday-Packs).
 
 ## Installing
-BETA Versions: `chrome://extensions` > Developer Mode > Load Unpacked > Choose this folder.
+All Versions: `chrome://extensions` > Developer Mode > Load Unpacked > Choose this folder.
 
-RELEASE Versions: Installing can be used via the Chrome Webstore.
+There is an tutorial that showcases how to install extensions like these: 
+
+There is currently no way to install the extension through the Chrome Extensions website, this is because we don't have an Chrome Developer account.
 
 ## First Run
 All grades currently present may need to be openend, because the extension scans if there are any new grades, these can be skipped with the appropiate button in the left corner.
