@@ -1,0 +1,84 @@
+/*
+ * Somtoday Packs
+ * 
+ * @description     This extension allows you to open new grades like EA FC packs. Not affiliated with Somtoday or EA Sports.
+ * @author          LubbertSchenk <info@lubbertschenk.nl>
+ * @copyright       2026 (C) LubbertSchenk
+ * @see             https://lubbertschenk.nl
+ * 
+ * Released under the MIT License.
+ * See: https://opensource.org/licenses/MIT
+ */
+
+body{
+    margin:0;
+    background:#050912;
+    color:#edf3ff;
+    font:15px Inter,system-ui,sans-serif
+}
+main{
+    max-width:720px;
+    margin:40px auto;
+    padding:0 22px
+}
+h1{
+    font-size:30px;
+    margin-bottom:4px
+}
+.lead{
+    color:#8ea0bd
+}
+section{
+    margin:25px 0;
+    padding:20px;
+    background:#0a1322;
+    border:1px solid #ffffff0c;
+    border-radius:16px
+}
+h2{
+    font-size:17px
+}
+label{
+    display:flex;
+    justify-content:space-between;
+    padding:14px 0;
+    border-bottom:1px solid #ffffff0a
+}
+input{
+    appearance:none;
+    width:42px;
+    height:23px;
+    border-radius:20px;
+    background:#263247;
+    position:relative
+}
+input:before{
+    content:"";
+    position:absolute;
+    left:2px;
+    top:2px;
+    width:19px;
+    height:19px;
+    border-radius:50%;
+    background:#dfe8f5;
+    transition:.2s
+}
+input:checked{
+    background:#287fff
+}
+input:checked:before{
+    left:21px
+}
+button{
+    padding:11px 15px;
+    border-radius:10px;
+    border:1px solid #ffffff12;
+    background:#32121a;
+    color:#fff;
+    cursor:pointer
+}
+p{
+    color:#9ba9bf;
+    line-height:1.55
+}
+ 

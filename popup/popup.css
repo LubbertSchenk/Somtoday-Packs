@@ -1,0 +1,131 @@
+/*
+ * Somtoday Packs
+ * 
+ * @description     This extension allows you to open new grades like EA FC packs. Not affiliated with Somtoday or EA Sports.
+ * @author          LubbertSchenk <info@lubbertschenk.nl>
+ * @copyright       2026 (C) LubbertSchenk
+ * @see             https://lubbertschenk.nl
+ * 
+ * Released under the MIT License.
+ * See: https://opensource.org/licenses/MIT
+ */
+
+*{
+    box-sizing:border-box
+}
+body{
+    margin:0;
+    width:340px;
+    background:#050912;
+    color:#eef4ff;
+    font:13px Inter,system-ui,sans-serif
+}
+main{
+    padding:18px
+}
+header{
+    display:flex;
+    gap:12px;
+    align-items:center;
+    margin-bottom:16px
+}
+.logo{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    display:grid;
+    place-items:center;
+    background:linear-gradient(145deg,#142c5a,#07101f);
+    font-weight:1000;
+    font-size:15px;
+    box-shadow:0 0 30px #267cff22
+}
+.logo span{
+    color:#5bb2ff
+}
+h1{
+    font-size:15px;
+    margin:0
+}
+small,p{
+    color:#91a0b8
+}
+.status{
+    padding:10px 12px;
+    border:1px solid #ffffff10;
+    background:#ffffff06;
+    border-radius:12px;
+    margin-bottom:12px
+}
+.dot{
+    display:inline-block;
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:#49d77b;
+    margin-right:7px
+}
+label{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:11px 0;
+    border-bottom:1px solid #ffffff0b
+}
+input{
+    appearance:none;
+    width:38px;
+    height:21px;
+    border-radius:20px;
+    background:#263247;
+    position:relative;
+    cursor:pointer
+}
+input:before{
+    content:"";
+    position:absolute;
+    width:17px;
+    height:17px;
+    top:2px;
+    left:2px;
+    border-radius:50%;
+    background:#d9e1ef;
+    transition:.2s
+}
+input:checked{
+    background:#247dff
+}
+input:checked:before{
+    left:19px
+}
+.stats{
+    margin:16px 0;
+    padding:13px;
+    border-radius:12px;
+    background:#0b1424
+}
+.stats b{
+    font-size:23px;
+    display:block
+}
+.stats span{
+    color:#8796ae
+}
+button{
+    width:100%;
+    margin-top:8px;
+    padding:10px;
+    border-radius:10px;
+    border:1px solid #ffffff12;
+    background:#11203a;
+    color:#fff;
+    cursor:pointer
+}
+.danger{
+    background:#32121a
+}
+p{
+    line-height:1.45;
+    font-size:11px
+}
+ 

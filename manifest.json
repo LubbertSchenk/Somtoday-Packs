@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "Somtoday Packs",
+  "version": "1.0",
+  "description": "This extension allows you to open new grades like EA FC packs. Not affiliated with Somtoday or EA Sports.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://somtoday.nl/*",
+    "https://*.somtoday.nl/*"
+  ],
+  "action": {
+    "default_title": "Somtoday Packs",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "settings/settings.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://somtoday.nl/*",
+        "https://*.somtoday.nl/*"
+      ],
+      "js": [
+        "content/guard.js"
+      ],
+      "css": [
+        "animation/pack.css"
+      ],
+      "run_at": "document_start"
+    },
+    {
+      "matches": [
+        "https://somtoday.nl/*",
+        "https://*.somtoday.nl/*"
+      ],
+      "js": [
+        "content/gradeDetector.js",
+        "content/gradeTracker.js",
+        "content/queue.js",
+        "animation/effects.js",
+        "animation/pack.js",
+        "content/spoiler.js",
+        "content/homepage.js",
+        "content/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {
+    "16": "assets/icons/icon16.png",
+    "32": "assets/icons/icon32.png",
+    "48": "assets/icons/icon48.png",
+    "128": "assets/icons/icon128.png"
+  }
+}

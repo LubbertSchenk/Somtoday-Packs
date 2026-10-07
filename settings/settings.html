@@ -1,0 +1,59 @@
+<!--
+  Somtoday Packs
+  
+  @description     This extension allows you to open new grades like EA FC packs. Not affiliated with Somtoday or EA Sports.
+  @author          LubbertSchenk <info@lubbertschenk.nl>
+  @copyright       2026 (C) LubbertSchenk
+  @see             https://lubbertschenk.nl
+  
+  Released under the MIT License.
+  See: https://opensource.org/licenses/MIT
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Somtoday Packs</title>
+        <link rel="stylesheet" href="settings.css" />
+    </head>
+    <body>
+        <main>
+            <a href="https://github.com/LubbertSchenk/Somtoday-Packs" target="_blank" rel="noopener noreferrer" title="LubbertSchenk.nl"><img src="/assets/icons/icon48.png" alt="View source on GitHub" /></a>
+            <h1>Somtoday Packs</h1>
+            <p class="lead">Settings & privacy</p>
+            <section>
+                <h2>Experience</h2>
+                <h5>We recommend that you enable all options except for reduced intensity for the best possible experience.<br>If you have problems with heavy shaking or flashing lights (for example epilepsy), then enab</h5>
+                <label>Pack openings<input id="enabled" type="checkbox" /></label>
+                <label>Spoiler protection<input id="spoilerProtection" type="checkbox" /></label>
+                <label>Hide “Laatste cijfer” grade<input id="hideHomepageGrade" type="checkbox" /></label>
+                <label>Animations<input id="animations" type="checkbox" /></label>
+                <label>Reduced animation intensity<input id="reducedIntensity" type="checkbox" /></label>
+                <label>Skip reveals card<input id="skipReveals" type="checkbox" /></label>
+            </section>
+            <section>
+                <h2>Grade history</h2>
+                <p id="stats"></p>
+                <button id="reset">Delete history & create a new baseline</button>
+                <button id="allnew">Mark all current grades as new (Cus why not?)</button>
+            </section>
+            <section>
+                <h2>Privacy</h2>
+                <p>
+                    Grade history is stored in Chrome storage on this device. The extension does not send grades,
+                    credentials, or page contents to an external server owned by Lubbert Schenk. It reads visible Somtoday content only on
+                    matching Somtoday pages.
+                </p>
+                <h2>Compatibility</h2>
+                <p>
+                    Somtoday markup can change. The detector prioritizes semantic/data-test/class clues and visible
+                    text, with a conservative fallback. A changed markup may require selector updates. No private
+                    Somtoday API is used.
+                    When Somtoday updates their UI, this extension may not work until it is updated. If you notice a problem, please report it on the GitHub issue tracker.
+                </p>
+            </section>
+        </main>
+        <script src="settings.js"></script>
+    </body>
+</html>

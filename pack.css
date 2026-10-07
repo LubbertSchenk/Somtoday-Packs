@@ -1,0 +1,398 @@
+/*
+ * Somtoday Packs
+ * 
+ * @description     This extension allows you to open new grades like EA FC packs. Not affiliated with Somtoday or EA Sports.
+ * @author          LubbertSchenk <info@lubbertschenk.nl>
+ * @copyright       2026 (C) LubbertSchenk
+ * @see             https://lubbertschenk.nl
+ * 
+ * Released under the MIT License.
+ * See: https://opensource.org/licenses/MIT
+ */
+
+#som-pack-root{
+    position:fixed;
+    inset:0;
+    z-index:2147483647;
+    font-family:Inter,ui-sans-serif,system-ui,sans-serif
+}
+.som-overlay{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    background:radial-gradient(circle at 50% 42%,#10254d 0,#060b18 48%,#02040b 100%);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    opacity:0;
+    animation:somIn .35s forwards
+}
+.som-overlay:before{
+    content:"";
+    position:absolute;
+    inset:-20%;
+    background:conic-gradient(from 0deg,transparent, color-mix(in srgb,var(--rarity),transparent 80%),transparent 35%);
+    animation:somSpin 9s linear infinite
+}
+.som-atmosphere{
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at 50% 45%,color-mix(in srgb,var(--rarity),transparent 80%),transparent 38%)
+}
+.som-top{
+    position:absolute;
+    top:28px;
+    left:30px;
+    right:30px;
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+    letter-spacing:.18em;
+    color:#aebbd4
+}
+.som-skip{
+    position:absolute;
+    right:30px;
+    bottom:28px;
+    border:1px solid #ffffff25;
+    background:#07101fdd;
+    color:#dce7fa;
+    padding:10px 14px;
+    border-radius:12px;
+    cursor:pointer
+}
+.som-stage{
+    position:relative;
+    width:min(78vw,470px);
+    height:600px;
+    display:grid;
+    place-items:center
+}
+.som-pack-art{
+    position:absolute;
+    width:260px;
+    height:370px;
+    border-radius:18px;
+    background:linear-gradient(145deg,#0c1630,#18396d 45%,#071021);
+    border:1px solid #ffffff45;
+    box-shadow:0 0 70px color-mix(in srgb,var(--rarity),transparent 55%),inset 0 0 40px #ffffff10;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    transform:perspective(700px) rotateX(0) rotateY(0) scale(.85);
+    animation:somPack 1.8s cubic-bezier(.2,.8,.2,1) forwards
+}
+.som-pack-mark{
+    font-size:68px;
+    font-weight:1000;
+    letter-spacing:-.08em
+}
+.som-pack-word{
+    font-size:16px;
+    letter-spacing:.55em;
+    margin-left:.55em;
+    color:var(--rarity)
+}
+.som-pack-shine{
+    position:absolute;
+    inset:-20%;
+    background:linear-gradient(115deg,transparent 35%,#fff8 48%,transparent 57%);
+    transform:translateX(-80%);
+    animation:somShine 1.1s ease-in-out infinite
+}
+.som-card{
+    position:absolute;
+    width:290px;
+    min-height:430px;
+    padding:30px 25px;
+    box-sizing:border-box;
+    border-radius:22px;
+    background:linear-gradient(155deg,color-mix(in srgb,var(--rarity),#0a1020 65%),#060a15 78%);
+    border:1px solid color-mix(in srgb,var(--rarity),white 35%);
+    box-shadow:0 0 80px color-mix(in srgb,var(--rarity),transparent 60%),inset 0 0 45px #fff1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    opacity:0;
+    transform:translateY(45px) scale(.82) rotateY(12deg);
+    transition:opacity .5s,transform .7s cubic-bezier(.15,.85,.2,1)
+}
+.som-overlay.revealed .som-pack-art{
+    animation:somPackOut .55s forwards
+}
+.som-overlay.revealed .som-card{
+    opacity:1;
+    transform:none
+}
+.som-rarity{
+    font-size:13px;
+    letter-spacing:.3em;
+    color:var(--rarity);
+    font-weight:900
+}
+.som-grade{
+    font-size:108px;
+    line-height:.95;
+    font-weight:1000;
+    letter-spacing:-.08em;
+    margin:20px 0
+}
+.som-subject{
+    font-size:25px;
+    font-weight:850;
+    text-transform:uppercase;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis
+}
+.som-meta{
+    margin-top:12px;
+    color:#b5c0d6;
+    font-size:13px;
+    max-width:100%
+}
+.som-actions{
+    position:absolute;
+    bottom:80px
+}
+.som-next{
+    opacity:0;
+    pointer-events:none;
+    border:1px solid #ffffff25;
+    background:#ffffff12;
+    color:white;
+    padding:12px 22px;
+    border-radius:12px;
+    font-weight:800;
+    cursor:pointer
+}
+.som-overlay.revealed .som-next{
+    opacity:1;
+    pointer-events:auto
+}
+.som-particle{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:5px;
+    height:10px;
+    border-radius:2px;
+    animation:somParticle 900ms ease-out forwards;
+    z-index:3
+}
+@keyframes somIn{
+    to{
+        opacity:1
+    }
+}
+@keyframes somSpin{
+    to{
+        transform:rotate(360deg)
+    }
+}
+@keyframes somPack{
+    0%{
+        opacity:0;
+        transform:scale(.65) translateY(80px) rotate(-5deg)
+    }
+    35%{
+        opacity:1
+    }
+    70%{
+        transform:scale(1.02) rotate(2deg)
+    }
+    100%{
+        transform:scale(.94)
+    }
+}
+@keyframes somPackOut{
+    to{
+        opacity:0;
+        transform:scale(1.45);
+        filter:brightness(2)
+    }
+}
+@keyframes somShine{
+    to{
+        transform:translateX(80%)
+    }
+}
+@keyframes somParticle{
+    to{
+        transform:translate(var(--x),var(--y)) rotate(var(--r));
+        opacity:0
+    }
+}
+@keyframes somSpin{
+    to{
+        transform:rotate(360deg)
+    }
+}
+@media(prefers-reduced-motion:reduce){
+    .som-overlay *{
+        animation:none!important;
+        transition:none!important
+    }
+}
+.closing{
+    opacity:0!important;
+    transition:opacity .2s
+}
+/* Spoilerbescherming: nog niet geopende cijfers blijven wazig */
+ .som-grade-spoiler{
+    filter:blur(9px);
+    user-select:none;
+    pointer-events:none
+}
+/* Pop-up "Er zijn nieuwe cijfers gevonden" */
+ #som-tray-root{
+    position:fixed;
+    inset:0;
+    z-index:2147483646;
+    pointer-events:none;
+    font-family:Inter,ui-sans-serif,system-ui,sans-serif
+}
+ .som-tray{
+    pointer-events:auto;
+    position:absolute;
+    inset:0;
+    overflow:auto;
+    box-sizing:border-box;
+    padding:24px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:20px;
+    color:#fff;
+    text-align:center;
+    background:radial-gradient(circle at 50% 42%,#10254d 0,#060b18 55%,#02040b 100%)
+}
+ .som-tray h2{
+    margin:0;
+    font-size:28px
+}
+.som-tray p{
+    margin:0;
+    color:#aebbd4;
+    font-size:14px
+}
+ .som-tray-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+    max-width:760px
+}
+ .som-tray-card{
+    width:132px;
+    height:178px;
+    padding:12px;
+    box-sizing:border-box;
+    border-radius:16px;
+    border:1px solid #ffffff35;
+    background:linear-gradient(155deg,#18396d,#071021);
+    color:#fff;
+    cursor:pointer;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font:800 13px/1.25 inherit;
+    text-transform:uppercase;
+    transition:transform .15s,border-color .15s
+}
+ .som-tray-card b{
+    font-size:48px;
+    color:#7fb2ff;
+    line-height:1
+}
+ .som-tray-card:hover,.som-tray-card:focus-visible{
+    transform:translateY(-6px) scale(1.04);
+    border-color:#ffd34d;
+    outline:none
+}
+ .som-tray-skip{
+    border:1px solid #ffffff40;
+    background:#ffffff12;
+    color:#fff;
+    border-radius:12px;
+    padding:11px 18px;
+    font-weight:700;
+    cursor:pointer
+}
+ .som-tray-skip:hover{
+    background:#ffffff24
+}
+ .som-tray-close{
+    position:absolute;
+    top:18px;
+    right:24px;
+    border:0;
+    background:none;
+    color:#fff;
+    font-size:26px;
+    opacity:.7;
+    cursor:pointer
+}
+ .som-tray-fab{
+    pointer-events:auto;
+    position:absolute;
+    right:18px;
+    bottom:84px;
+    border:0;
+    border-radius:12px;
+    padding:12px 18px;
+    background:linear-gradient(135deg,#f6d365,#e69b22);
+    color:#181c20;
+    font:800 15px Inter,system-ui,sans-serif;
+    cursor:pointer;
+    box-shadow:0 4px 16px #0006
+}
+/* Dekt /cijfers af totdat de extensie heeft gecontroleerd op nieuwe cijfers */
+ html.som-guard::after{
+    content:"🎁 Cijfers controleren…";
+    position:fixed;
+    inset:0;
+    z-index:2147483645;
+    display:grid;
+    place-items:center;
+     background:radial-gradient(circle at 50% 42%,#10254d 0,#060b18 55%,#02040b 100%);
+    color:#aebbd4;
+     font:700 15px Inter,ui-sans-serif,system-ui,sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    animation:somGuardPulse 1.4s ease-in-out infinite
+}
+ @keyframes somGuardPulse{
+    50%{
+        opacity:.55
+    }
+}
+/* Geen onzichtbare laag meer die klikken blokkeert */
+ #som-pack-root:empty{
+    display:none
+}
+/* Startpagina e.d.: cijfers verbergen buiten /cijfers */
+ html.som-hide-grades sl-resultaat-item .cijfer>*{
+    display:none!important
+}
+ html.som-hide-grades sl-resultaat-item .cijfer::after{
+    content:"🎁"
+}
+ .som-home-hide{
+    font-size:0!important;
+    color:transparent!important
+}
+ .som-home-hide::after{
+    content:"🎁";
+    font-size:26px;
+    color:#fff
+}
+ 

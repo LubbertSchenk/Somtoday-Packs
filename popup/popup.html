@@ -1,0 +1,46 @@
+<!--
+  Somtoday Packs
+  
+  @description     This extension allows you to open new grades like EA FC packs. Not affiliated with Somtoday or EA Sports.
+  @author          LubbertSchenk <info@lubbertschenk.nl>
+  @copyright       2026 (C) LubbertSchenk
+  @see             https://lubbertschenk.nl
+  
+  Released under the MIT License.
+  See: https://opensource.org/licenses/MIT
+-->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Som Packs</title>
+        <link rel="stylesheet" href="popup.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <a href="https://github.com/LubbertSchenk/Somtoday-Packs" target="_blank" rel="noopener noreferrer" title="LubbertSchenk.nl"><img src="/assets/icons/icon48.png" alt="https://github.com/LubbertSchenk/Somtoday-Packs" /></a>
+                <div>
+                    <h1>Somtoday Packs</h1>
+                    <small>Open your grades like they are EA FC packs.</small>
+                </div>
+            </header>
+            <section class="status"><span class="dot"></span><span id="status">Checking Somtoday...</span></section>
+            <h5>We recommend that you enable all options except for reduced intensity for the best possible experience.<br>If you have problems with heavy shaking or flashing lights (for example epilepsy), then enab</h5>
+            <label>Pack openings <input id="enabled" type="checkbox" /></label>
+            <label>Spoiler protection <input id="spoilerProtection" type="checkbox" /></label>
+            <label>Homepage grade hiding <input id="hideHomepageGrade" type="checkbox" /></label>
+            <label>Animations <input id="animations" type="checkbox" /></label>
+            <label>Reduced intensity <input id="reducedIntensity" type="checkbox" /></label>
+            <div class="stats"><b id="count">0</b><span>packs opened</span></div>
+            <button id="reset" class="danger">Reset grade history</button>
+            <button id="testpack">Test pack animation</button>
+            <button id="settings">Open settings</button>
+            <p>
+                All data about your grades won't be saved to any server owned by Lubbert Schenk.<br>The extension relies on Chrome storage to store data.
+            </p>
+        </main>
+        <script src="popup.js"></script>
+    </body>
+</html>
