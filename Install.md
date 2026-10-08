@@ -1,5 +1,6 @@
 # HTML FILE
 There is an HTML version of this Install, this can be found at [LubbertSchenk.nl](https://lubbertschenk.nl/Github/Somtoday/Install.html)
+There is also an video tutorial which can be found at [YouTube](https://youtu.be/9QFYbnRs5mM)
 
 # How to install the extension?
 Well, this is an great question. Since we don't have it published on the chrome webstore, you need to manually upload it following the steps noted under here.
