@@ -1,5 +1,6 @@
-# HTML FILE
+# EXTRA METHODS
 There is an HTML version of this README, this can be found at [LubbertSchenk.nl](https://lubbertschenk.nl/Github/Somtoday/README.html)
+There is also an video tutorial which can be found at [YouTube](https://youtu.be/9QFYbnRs5mM)
 
 # Somtoday Packs
 Version: 1.0
