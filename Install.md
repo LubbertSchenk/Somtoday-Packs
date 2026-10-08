@@ -1,5 +1,5 @@
 # HTML FILE
-There is an HTML version of this Install, this can be found at [LubbertSchenk.nl](https://lubbertschenk.nl/Github/Somtoday/Install.html)
+There is an HTML version of this Install, this can be found at [LubbertSchenk.nl](https://lubbertschenk.nl/Github/Somtoday/Install.html)<br>
 There is also an video tutorial which can be found at [YouTube](https://youtu.be/9QFYbnRs5mM)
 
 # How to install the extension?
